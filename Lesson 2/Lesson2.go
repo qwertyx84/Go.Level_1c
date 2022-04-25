@@ -10,7 +10,7 @@ func main() {
 
 	//Напишите программу для вычисления площади прямоугольника. Длины сторон прямоугольника должны вводиться пользователем с клавиатуры.
 	var a, b float32
-	fmt.Print("Task 1")
+	fmt.Println("Task 1")
 	fmt.Print("Введите первое число a: ")
 	fmt.Scanln(&a)
 	fmt.Print("Введите второе число b: ")
@@ -20,7 +20,7 @@ func main() {
 	//Напишите программу, вычисляющую диаметр и длину окружности по заданной площади круга. Площадь круга должна вводиться пользователем с клавиатуры.
 	var s float64
 	var r float64
-	fmt.Print("Task 2")
+	fmt.Println("Task 2")
 	fmt.Print("Введите площадь круга S: ")
 	fmt.Scanln(&s)
 
@@ -31,12 +31,18 @@ func main() {
 
 	//С клавиатуры вводится трехзначное число. Выведите цифры, соответствующие количество сотен, десятков и единиц в этом числе.
 	var strVal string
-	var intVal int64
-	fmt.Print("Введите трехзначное число: ")
+	var intVal int
+	fmt.Println("Введите трехзначное число: ")
 	fmt.Scanln(&intVal)
-	strVal = strconv.FormatInt(intVal, 10)
+	strVal = strconv.FormatInt(int64(intVal), 10)
 	fmt.Printf("Число содержит %c сотен, %c десятков %c единиц\n", strVal[0], strVal[1], strVal[2])
 
-	fmt.Scanf(" ")
+	//через деление
+	var digit1 int = intVal % 10
+	var digit2 int = (intVal - digit1) / 10 % 10
+	var digit3 int = (intVal - digit2*10 - digit1) / 100
+	fmt.Printf("Число содержит %d сотен, %d десятков %d единиц\n", digit3, digit2, digit1)
+
+	fmt.Scanf("")
 
 }
